@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 0, 198, 248)),
+        useMaterial3: false,
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 228, 85, 85)),
       ),
       home: const MyHomePage(title: 'Flutter Kelompok 4'),
     );
@@ -81,10 +82,27 @@ class _MyHomePageState extends State<MyHomePage> {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+      actions: [
+      Padding(
+        padding: const EdgeInsets.only(
+          right: 15.0,
+          top: 8,
+          bottom:8,
+          ), // kasih margin kanan
+          child: Image.asset(
+          'assets/msolver.jpeg',
+            // pastikan path benar di pubspec.yaml
+          ),
+        ),
+      ],
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget.title,
+          style: const TextStyle(
+          fontWeight: FontWeight.bold
+          ),
+        ),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -105,7 +123,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('Kamu Sudah Berzikir Sebanyak:'),
+            const Text('Kamu Sudah Berzikir Sebanyak',
+            style: TextStyle(fontWeight: FontWeight.bold)
+            ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
